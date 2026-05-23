@@ -1090,6 +1090,8 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
 
     private static final String[] CDN_FRONTING_TUNNEL_PROTOCOLS = {
             "FRONTED-MEEK-CDN-OSSH",
+            "FRONTED-MEEK-CDN-HTTP-OSSH",
+            "FRONTED-MEEK-CDN-QUIC-OSSH",
     };
 
     private static final String[] DIRECT_TUNNEL_PROTOCOLS = {
@@ -1104,7 +1106,9 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
             "FRONTED-MEEK-OSSH",
             "FRONTED-MEEK-CDN-OSSH",
             "FRONTED-MEEK-HTTP-OSSH",
+            "FRONTED-MEEK-CDN-HTTP-OSSH",
             "FRONTED-MEEK-QUIC-OSSH",
+            "FRONTED-MEEK-CDN-QUIC-OSSH",
     };
 
     private Handler sendDataTransferStatsHandler = new Handler();
