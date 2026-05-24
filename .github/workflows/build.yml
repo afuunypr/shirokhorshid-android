@@ -85,7 +85,7 @@ jobs:
           export GOCACHE=/tmp/go-cache
 
           gomobile bind -v \
-            -target=android/arm,android/arm64 \
+            -target=android/arm,android/arm64,android/amd64 \
             -tags="$BUILD_TAGS" \
             -ldflags="$LDFLAGS" \
             -o psi.aar \
