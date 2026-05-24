@@ -2193,9 +2193,7 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
                             "\\(ip: ([^,]+), sni: ([^)]+)\\)");
                     java.util.regex.Matcher matcher = pattern.matcher(message);
                     if (matcher.find()) {
-                        String ipAddress = matcher.group(1)
-                                .replace("\\.", ".")
-                                .replace("\\:", ":");
+                        String ipAddress = unescapeRedactionSafeIPAddress(matcher.group(1));
                         String sniServerName = matcher.group(2);
                         if ("none".equals(sniServerName)) {
                             sniServerName = getContext().getString(R.string.cdn_fronting_scan_no_sni);
@@ -2230,6 +2228,10 @@ public class TunnelManager implements PsiphonTunnel.HostService, VpnManager.VpnS
                 MyLog.i(now, message);
             }
         });
+    }
+
+    private static String unescapeRedactionSafeIPAddress(String escapedAddress) {
+        return escapedAddress.replaceAll("\\\\+([.:])", "$1");
     }
 
     /**
